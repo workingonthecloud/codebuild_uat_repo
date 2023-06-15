@@ -1,15 +1,21 @@
-!#/bin/bash
+version: 0.2
 
-# Set AWS region and CloudFormation stack name
-AWS_REGION="us-east-1"
-STACK_NAME="my-cloudformation-stack"
+phases:
+  install:
+    runtime-versions:
+      ubuntu: 20
 
-
-#perameters for pipeline  
-#pipeline region
-#pipeline 
-
+pre_build:
+  commands:
+    - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    - unzip awscliv2.zip
+    - sudo ./aws/install
+    - 
+      
 # Package the CloudFormation template
+build:
+  commands:
+    - 
 aws cloudformation package \
   --template-file template.yaml \
   --s3-bucket my-s3-bucket \
