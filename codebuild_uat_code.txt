@@ -1,8 +1,33 @@
-1#
+!#/bin/bash
+
+# Set AWS region and CloudFormation stack name
+AWS_REGION="us-east-1"
+STACK_NAME="my-cloudformation-stack"
 
 
-perameters 
+#perameters for pipeline  
+#pipeline region
+#pipeline 
+
+# Package the CloudFormation template
+aws cloudformation package \
+  --template-file template.yaml \
+  --s3-bucket my-s3-bucket \
+  --output-template-file packaged-template.yaml
+
+  # Deploy the CloudFormation stack
+aws cloudformation deploy \
+  --region $AWS_REGION \
+  --template-file packaged-template.yaml \
+  --stack-name $STACK_NAME \
+  --capabilities CAPABILITY_IAM
+\
 
 
-#initial cloudformation initialization 
-aws cloudformation package 
+#push images to ecr 
+docker push $REPOSITORY_URIURI:$VERSION 
+  - repository name - ""
+  - repository region 
+  - repository subnet 
+  - repositry availability zone 
+  - repository
